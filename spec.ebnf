@@ -1,0 +1,9 @@
+(* Language Grammar *)
+
+<S> = exp_Arithmetic
+<exp_Arithmetic> = sym_Number sym_Operator sym_Number
+
+(* symbols *)
+sym_Operator = #'[\+\-\*]'
+sym_Number = #'[1-9]+'
+
