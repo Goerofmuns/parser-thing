@@ -24,9 +24,12 @@
    (list (extract-val (nth _tree 1))   ; second element, the operator
          (extract-val (first _tree))   ; first num
          (extract-val (last _tree)))) ; second num
-  (case (first (first tree))
-    :exp_Arithmetic (trans-exp_Arithmetic tree)
-    :exp_Function (println "FUNCTION thiNG AAGAG")))
+  (let [elems (first tree)]
+   (if (= :expression (first elems)) ;check we have an expression chain of some sort
+     (case (nth elems 1)
+        :exp_Arithmetic (trans-exp_Arithmetic tree)
+        :exp_Function (println "FUNCTION thiNG AAGAG"))
+     (println "first element of parse tree must be :expression!"))))
 
 (defn exec [s]
  (eval (translate (grammar s))))
