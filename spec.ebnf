@@ -1,7 +1,7 @@
 (* Language Grammar *)
 
-<S> = exp_Arithmetic
-expression = (exp_Arithmetic | exp_Function)*
+<S> = expression
+expression = ((exp_Arithmetic | exp_Function) <';'> <#'[\s]?'>)*
 exp_Function = #'fun_[a-zA-Z]+\(\)'
 exp_Arithmetic = sym_Number <whitespace> sym_Operator <whitespace> sym_Number
 
