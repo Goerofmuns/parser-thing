@@ -3,7 +3,7 @@
 <S> = exp_Arithmetic
 <exp_Arithmetic> = sym_Number <whitespace> sym_Operator <whitespace> sym_Number
 
-<whitespace> = #'[\\s]?'
+whitespace = #'[\s]?'
 
 (* symbols *)
 sym_Operator = #'[\+\-\*]'

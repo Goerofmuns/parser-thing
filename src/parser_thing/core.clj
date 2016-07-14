@@ -2,7 +2,7 @@
  (:require [instaparse.core :as insta]))
 
 (def grammar
- (insta/parser (slurp "./spec.ebnf")))
+   (insta/parser (slurp "./spec.ebnf")))
 
 (defn extract-opr [container]
   (case (last container)
@@ -20,6 +20,6 @@
  "translates a syntax tree into a clojure program"
   (list (extract-val (nth tree 1)) (extract-val (first tree)) (extract-val (last tree))))
 
-(defn parse [s]
- (grammar s))
+(defn exec [s]
+ (eval (translate (grammar s))))
 
