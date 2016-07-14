@@ -18,7 +18,9 @@
 
 (defn translate [tree]
  "translates a syntax tree into a clojure program"
-  (list (extract-val (nth tree 1)) (extract-val (first tree)) (extract-val (last tree))))
+  (list (extract-val (nth tree 1))  ; second element, the operator
+        (extract-val (first tree))  ; first num
+        (extract-val (last tree)))) ; second num
 
 (defn exec [s]
  (eval (translate (grammar s))))
