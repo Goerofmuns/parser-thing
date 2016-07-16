@@ -24,6 +24,7 @@
    (list (extract-val (nth _tree 1))   ; second element, the operator
          (extract-val (first _tree))   ; first num
          (extract-val (last _tree)))) ; second num
+
   (let [elems (first tree)]
    (if (= :expression (first elems)) ;check we have an expression chain of some sort
      (case (nth elems 1)
